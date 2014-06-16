@@ -24,7 +24,7 @@ int main()
 	}
 	lli ans = 0;
 	for(int i = 0; i < n; i++)
-		ans += d[i]*d[i];
+		ans += (lli)d[i]*d[i];
 	cout << ans << '\n';
 	return 0;
 }
