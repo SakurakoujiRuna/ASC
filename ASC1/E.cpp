@@ -201,7 +201,7 @@ int main()
 		for(int j = 0; j < (1<<m); j++)
 		{
 			step.num[i][j] = 1;
-			for(int k = 0; k < m; k++)
+			for(int k = 0; k < m-1; k++)
 			{
 				int calc = ((i>>k)&1) + ((j>>k)&1);
 				calc += ((i>>(k+1))&1) + ((j>>(k+1))&1);
@@ -212,7 +212,7 @@ int main()
 	Matrix T = S*qpow(step, N-1);
 	int ans = 0;
 	for(int i = 0; i < (1<<m); i++)
-		ans += T.num[0][i];
+		/*cout << i << ' ' << T.num[0][i] << '\n', */ans += T.num[0][i];
 	cout << ans%MOD << '\n';
 	return 0;
 }
