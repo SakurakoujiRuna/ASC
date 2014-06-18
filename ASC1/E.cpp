@@ -211,7 +211,7 @@ int main()
 		}
 	Matrix T = S*qpow(step, N-1);
 	int ans = 0;
-	for(int i = 0; i < m; i++)
+	for(int i = 0; i < (1<<m); i++)
 		ans += T.num[0][i];
 	cout << ans%MOD << '\n';
 	return 0;
