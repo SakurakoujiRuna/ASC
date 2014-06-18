@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdio>
 #include <cstring>
 using namespace std;
 
@@ -25,8 +26,10 @@ struct BigInt
 	}
 	BigInt(string s)
 	{
+		top = 0;
 		int len = s.size();
 		int ts = 0, tl = 1;
+		memset(b, 0, sizeof(b));
 		for(int i = len-1; i >= 0; i--)
 		{
 			ts = ts + tl*(s[i]-'0');
@@ -51,7 +54,7 @@ struct BigInt
 	}
 	friend ostream& operator <<(ostream& out,const BigInt& obj)
 	{
-		if(!obj.top) cout << 0;
+		if(!obj.top) out << 0;
 		else
 		{	
 			out << obj.b[obj.top-1];
@@ -142,6 +145,7 @@ int main()
 	freopen("china.out", "w", stdout);
 
 	ios::sync_with_stdio(false);
+	
 	BigInt N; cin >> N;
 	int flag = N.b[0]%4;
 	if(flag == 0)
